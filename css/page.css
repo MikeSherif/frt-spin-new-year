@@ -313,6 +313,26 @@
   filter: saturate(0.7);
 }
 
+.spin-card-garland {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  left: 14px;
+  right: 14px;
+  pointer-events: none;
+}
+
+.spin-card-garland svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.spin-card-bulb {
+  animation: spin-bulb 1.8s ease-in-out infinite;
+}
+
 .spin-card-head {
   display: flex;
   align-items: center;
@@ -335,6 +355,7 @@
   position: relative;
   overflow: hidden;
   border-left: 0;
+  padding-top: 54px;
   padding-left: 32px;
   transform: translateX(48px);
   opacity: 0;
@@ -396,6 +417,7 @@
   .spin-bulb,
   .spin-chase,
   .spin-lights i,
+  .spin-card-bulb,
   .spin-hub b,
   .spin-hub span,
   .spin .maze-panel::before {
