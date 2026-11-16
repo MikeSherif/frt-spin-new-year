@@ -1,0 +1,48 @@
+/* Карточка с термином текущего шага */
+
+.maze-panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--orange);
+  padding: 28px;
+  min-height: 200px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.maze-panel--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.maze-panel__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+
+.maze-panel__term {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.maze-panel__text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .maze-panel {
+    transition: none;
+  }
+}

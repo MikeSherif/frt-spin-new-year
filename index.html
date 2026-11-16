@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Колесо ФРТОШКИ</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+  <div class="maze-root spin">
+    <div class="spin-snow" aria-hidden="true"></div>
+    <header class="spin-top">
+      <div>
+        <h1>Колесо ФРТОШКИ</h1>
+        <p>Крути — справа выедет новогоднее предсказание</p>
+      </div>
+      <span class="maze-header__badge">Новый год</span>
+    </header>
+
+    <main class="spin-layout">
+      <section class="spin-stage">
+        <div class="spin-wheel-wrap">
+          <div class="spin-frt">
+            <img src="assets/img/frtoshka.svg" alt="">
+          </div>
+          <div class="spin-rotor" id="rotor">
+            <svg id="wheel" viewBox="0 0 500 500" aria-hidden="true"></svg>
+          </div>
+          <div class="spin-hub" aria-hidden="true"></div>
+        </div>
+        <button class="spin-go" id="spin" type="button">Крутить</button>
+      </section>
+
+      <aside class="spin-aside">
+        <article class="maze-panel maze-panel--visible" id="card">
+          <div class="maze-panel__label">Предсказание</div>
+          <h2 class="maze-panel__term" id="card-title">Крути колесо</h2>
+          <p class="maze-panel__text" id="card-text">ФРТОШКА уже сидит сверху и машет. Нажми кнопку — колесо выберет пожелание само.</p>
+        </article>
+      </aside>
+    </main>
+  </div>
+  <script src="js/wheel.js"></script>
+</body>
+</html>
