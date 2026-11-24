@@ -34,7 +34,19 @@
 }
 
 .spin-branch--left { left: -18px; bottom: -12px; }
+.spin-branch--left-high { left: -22px; top: 30%; width: 118px; transform: rotate(-8deg); }
 .spin-branch--right { right: -28px; top: 18px; transform: scaleX(-1); }
+.spin-branch--right-bottom { right: -40px; bottom: -56px; width: 124px; }
+
+.spin-holly {
+  position: fixed;
+  z-index: 2;
+  width: 96px;
+  pointer-events: none;
+}
+
+.spin-holly--left { left: 132px; bottom: 10px; }
+.spin-holly--right { right: 168px; bottom: 16px; width: 84px; transform: scaleX(-1) rotate(8deg); }
 
 .spin-lights {
   position: relative;
@@ -486,7 +498,7 @@
     align-items: flex-start;
   }
 
-  .spin-branch { display: none; }
+  .spin-branch, .spin-holly { display: none; }
 
   .spin-motion__card {
     left: 0;
