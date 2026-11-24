@@ -313,8 +313,51 @@ function mountMascot() {
     .catch(() => {});
 }
 
+function motionHelp() {
+  const motion = document.querySelector('.spin-motion');
+  const ask = motion.querySelector('.spin-motion__ask');
+  const card = document.getElementById('spin-motion-help');
+
+  function expanded(open) {
+    ask.setAttribute('aria-expanded', open ? 'true' : 'false');
+    card.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+
+  function shown() {
+    return motion.classList.contains('is-open') || motion.matches(':hover') || motion.matches(':focus-within');
+  }
+
+  ask.addEventListener('click', (event) => {
+    event.stopPropagation();
+    motion.classList.toggle('is-open');
+    expanded(shown());
+  });
+
+  function close() {
+    motion.classList.remove('is-open');
+    if (motion.contains(document.activeElement)) document.activeElement.blur();
+    expanded(false);
+  }
+
+  document.addEventListener('click', (event) => {
+    if (motion.contains(event.target)) return;
+    close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    close();
+  });
+
+  motion.addEventListener('pointerenter', () => expanded(true));
+  motion.addEventListener('pointerleave', () => expanded(shown()));
+  motion.addEventListener('focusin', () => expanded(true));
+  motion.addEventListener('focusout', () => expanded(shown()));
+}
+
 drawWheel();
 lights();
 snow();
 mountMascot();
 button.addEventListener('click', spin);
+motionHelp();

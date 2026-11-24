@@ -38,7 +38,16 @@
         <h1>Колесо ФРТОШКИ</h1>
         <p>Крути — справа выедет новогоднее предсказание</p>
       </div>
-      <span class="maze-header__badge">Новый год</span>
+      <div class="spin-motion">
+        <span class="spin-motion__label">Нет анимации</span>
+        <button class="spin-motion__ask" type="button" aria-expanded="false" aria-controls="spin-motion-help">?</button>
+        <div class="spin-motion__card" id="spin-motion-help" role="dialog" aria-labelledby="spin-motion-title" aria-hidden="true">
+          <h2 id="spin-motion-title">Как включить анимации</h2>
+          <p><b>Windows 10.</b> Параметры → Специальные возможности → Дисплей → включить «Показывать анимации в Windows».</p>
+          <p><b>Windows 11.</b> Параметры → Специальные возможности → Визуальные эффекты → включить «Эффекты анимации».</p>
+          <p>После этого обновите страницу.</p>
+        </div>
+      </div>
     </header>
 
     <main class="spin-layout">

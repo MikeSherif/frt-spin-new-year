@@ -75,6 +75,8 @@
   z-index: 2;
 }
 
+.spin-top { z-index: 4; }
+
 .spin-snow i {
   position: absolute;
   top: -8vh;
@@ -106,6 +108,85 @@
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.95rem;
 }
+
+.spin-motion {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.spin-motion__label {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.spin-motion__ask {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.spin-motion__ask:hover { background: var(--orange-light); }
+
+.spin-motion__ask:focus-visible {
+  outline: 3px solid rgba(245, 130, 32, 0.55);
+  outline-offset: 2px;
+}
+
+.spin-motion__ask:active { background: #d96e12; }
+
+.spin-motion__card {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 2;
+  width: min(320px, calc(100vw - 32px));
+  margin: 0;
+  padding: 16px 16px 14px 18px;
+  border-left: 4px solid var(--orange);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+.spin-motion:hover .spin-motion__card,
+.spin-motion:focus-within .spin-motion__card,
+.spin-motion.is-open .spin-motion__card {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.spin-motion__card h2 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.spin-motion__card p {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.spin-motion__card p:last-child { margin-bottom: 0; }
 
 .spin-layout {
   display: grid;
@@ -406,6 +487,11 @@
   }
 
   .spin-branch { display: none; }
+
+  .spin-motion__card {
+    left: 0;
+    right: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -420,7 +506,8 @@
   .spin-card-bulb,
   .spin-hub b,
   .spin-hub span,
-  .spin .maze-panel::before {
+  .spin .maze-panel::before,
+  .spin-motion__card {
     animation: none;
     transition: none;
   }
