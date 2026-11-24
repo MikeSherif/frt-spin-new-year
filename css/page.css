@@ -130,32 +130,53 @@
 }
 
 .spin-motion__label {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.95rem;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .spin-motion__ask {
-  width: 28px;
-  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--orange);
+  background: linear-gradient(135deg, var(--orange-light), var(--orange) 42%, var(--red));
+  background-size: 180% 180%;
   color: #fff;
   font: inherit;
+  font-size: 1.45rem;
   font-weight: 800;
   line-height: 1;
   cursor: pointer;
+  animation: spin-ask 1.5s ease-in-out infinite;
 }
 
-.spin-motion__ask:hover { background: var(--orange-light); }
+.spin-motion__ask:hover { filter: brightness(1.08); }
 
 .spin-motion__ask:focus-visible {
   outline: 3px solid rgba(245, 130, 32, 0.55);
   outline-offset: 2px;
 }
 
-.spin-motion__ask:active { background: #d96e12; }
+.spin-motion__ask:active { filter: brightness(0.9); }
+
+@keyframes spin-ask {
+  0%, 100% {
+    background-position: 0% 40%;
+    box-shadow: 0 0 0 0 rgba(245, 130, 32, 0.35);
+  }
+
+  50% {
+    background-position: 100% 70%;
+    box-shadow: 0 0 16px 4px rgba(237, 28, 36, 0.55);
+  }
+}
 
 .spin-motion__card {
   position: absolute;
@@ -519,7 +540,8 @@
   .spin-hub b,
   .spin-hub span,
   .spin .maze-panel::before,
-  .spin-motion__card {
+  .spin-motion__card,
+  .spin-motion__ask {
     animation: none;
     transition: none;
   }
